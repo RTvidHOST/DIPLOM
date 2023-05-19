@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DFD0CC"
+    tools:context=".DisplayData">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv"
+        android:layout_below="@+id/filt"/>
+    <EditText
+        android:hint="Тип инструмента"
+        android:id="@+id/filt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_filt"
+        android:text="поиск"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/filt"/>
+    <Button
+        android:id="@+id/btn_user"
+        android:text="Данные пользователей"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_filt"/>
+    <Button
+        android:id="@+id/btn_order"
+        android:text="Заказы"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_user"/>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:text="назад"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/filt"
+        android:visibility="gone"/>
+</RelativeLayout>

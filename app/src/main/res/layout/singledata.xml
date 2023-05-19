@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="8dp">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingLeft="5dp"
+            android:id="@+id/viewavatar"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/viewavatar"
+            android:text="@string/app_name"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txt_name"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_name"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/app_name"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txt_price"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/txt_firm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_price"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txt_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_firm"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txt_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_model"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_name"
+            android:layout_toRightOf="@+id/viewavatar"
+            android:text="Цена"
+            android:layout_marginTop="10dp"
+            android:id="@+id/price"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/firm"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@+id/viewavatar"
+            android:text="Фирма:" />
+
+        <TextView
+            android:id="@+id/model"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firm"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@+id/viewavatar"
+            android:text="Модель:" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/model"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@+id/viewavatar"
+            android:text="Тип:" />
+
+        <ImageButton
+            android:id="@+id/edit"
+            android:background="@color/white"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/baseline_edit_24"
+            android:layout_below="@+id/viewavatar"/>
+
+        <ImageButton
+            android:background="@color/white"
+            android:id="@+id/delete"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/baseline_delete_24"
+            android:layout_below="@+id/edit"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

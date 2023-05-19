@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DFD0CC"
+    tools:context=".BasketUser">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/balanceText"
+        android:id="@+id/rv10" />
+    <TextView
+        android:textSize="20dp"
+        android:id="@+id/balanceText"
+        android:layout_alignParentRight="true"
+        android:layout_width="100dp"
+        android:layout_height="50dp"/>
+    <ImageButton
+        android:src="@drawable/baseline_arrow_back_24"
+        android:background="#DFD0CC"
+        android:id="@+id/btn_backBacket"
+        android:layout_alignParentRight="true"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/balanceText"/>
+    <TextView
+        android:id="@+id/balanceText2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/balanceText"
+        android:text="Баланс счёта:   "
+        android:textSize="20dp" />
+    <ImageButton
+        android:src="@drawable/baseline_account_balance_wallet_24"
+        android:background="#DFD0CC"
+        android:id="@+id/balanceBTN"
+        android:layout_toRightOf="@+id/refreshBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/balanceText2" />
+    <ImageButton
+        android:src="@drawable/baseline_refresh_24"
+        android:background="#DFD0CC"
+        android:id="@+id/refreshBTN"
+        android:layout_alignParentLeft="true"
+        android:layout_width="75dp"
+        android:layout_height="50dp" />
+</RelativeLayout>

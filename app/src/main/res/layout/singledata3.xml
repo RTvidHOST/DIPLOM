@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_width="350dp"
+            android:layout_height="170dp"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="5dp"
+            android:id="@+id/viewavatar1"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/viewavatar1"
+            android:text="@string/app_name"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txt_name1"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_name1"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/app_name"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txt_price1"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/txt_firm1"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_price1"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/app_name"/>
+
+        <TextView
+            android:id="@+id/txt_model1"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_firm1"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txt_type1"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_model1"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/price"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_name1"
+            android:text="Цена"
+            android:layout_marginTop="10dp"
+            android:id="@+id/price"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/firm"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="9dp"
+            android:text="Фирма:" />
+
+        <TextView
+            android:id="@+id/model"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firm"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="9dp"
+            android:text="Модель:" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/model"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="9dp"
+            android:text="Тип:" />
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_marginTop="35dp"
+            android:background="@color/white"
+            android:layout_height="80dp"
+            android:id="@+id/btn_buy"
+            android:layout_below="@+id/viewavatar1"
+            android:src="@drawable/baseline_shopping_cart_24"
+            android:layout_toRightOf="@+id/txt_name1"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
