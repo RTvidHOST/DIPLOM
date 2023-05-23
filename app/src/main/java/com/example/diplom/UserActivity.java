@@ -17,8 +17,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -63,6 +65,45 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btn_filt_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filtData();
+                btn_filt_user.setVisibility(View.GONE);
+                btn_backUser.setVisibility(View.VISIBLE);
+            }
+        });
+        btn_backUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayData();
+                btn_backUser.setVisibility(View.GONE);
+                btn_filt_user.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    private void filtData() {
+        EditText filt = (EditText) findViewById(R.id.filt);
+        filt.setInputType(InputType.TYPE_CLASS_TEXT);
+        String fl = filt.getText().toString();
+
+        sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select " + MUSIC_ID + ", " + MUSIC_AVATAR + ", " + MUSIC_NAME + ", " + MUSIC_PRICE + ", " + MUSIC_FIRM + ", " + MUSIC_MODEL + ", " + MUSIC_TYPE + " from "+ TABLE_MUSIC + " where " + MUSIC_TYPE + " = " + "'"  + fl + "'" +" ", null);
+        ArrayList<Modeluser>modelusers = new ArrayList<>();
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            byte[]avatar = cursor.getBlob(1);
+            String name = cursor.getString(2);
+            String price = cursor.getString(3);
+            String firm = cursor.getString(4);
+            String model = cursor.getString(5);
+            String type = cursor.getString(6);
+            modelusers.add(new Modeluser(id, avatar, name, price, firm, model, type));
+        }
+        cursor.close();
+        myAdapterUser = new MyadapterUser(R.layout.singledata3, this, modelusers, sqLiteDatabase);
+        recyclerView.setAdapter(myAdapterUser);
     }
 
     private void displayData() {

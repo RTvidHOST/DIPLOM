@@ -90,7 +90,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.PostViewHolder> {
                 sqLiteDatabase = dbHelper.getReadableDatabase();
                 long recdelete = sqLiteDatabase.delete(TABLE_MUSIC, "id = " + model.getId(), null);
                 if (recdelete != 1){
-                    Toast.makeText(context, "date deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Данные удалены", Toast.LENGTH_SHORT).show();
                     modelArrayList.remove(position);
                     notifyDataSetChanged();
                 }

@@ -35,23 +35,23 @@ public class loginActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
 
                 if (user.equals("")||pass.equals(""))
-                    Toast.makeText(loginActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(loginActivity.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
                 else{
                     Boolean chekuserpass = dbHelper.checkusernamepassword(user, pass);
                     if (chekuserpass == true) {
-                        Toast.makeText(loginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginActivity.this, "Вход выполнен", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), UserActivity.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(loginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginActivity.this, "Неверные данные", Toast.LENGTH_SHORT).show();
                     }
                     Boolean chekadminpass = dbHelper.checkadminpassword(user, pass);
                     if (chekadminpass == true) {
-                        Toast.makeText(loginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginActivity.this, "Вход выполнен", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), AddProduct.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(loginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginActivity.this, "Неверные данные", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

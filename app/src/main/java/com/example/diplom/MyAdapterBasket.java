@@ -74,26 +74,29 @@ public class MyAdapterBasket extends RecyclerView.Adapter<MyAdapterBasket.PostVi
                 Cursor cursor1 = sqLiteDatabase.rawQuery("select price from music where id = " + AddProduct.id, null);
                 if (cursor1.moveToFirst()){
                     count1 = cursor1.getInt(0);
-                }
-                cursor.close();
-                if (pr <= bl){
-                    DBHelper dbHelper = new DBHelper(context);
-                    sqLiteDatabase = dbHelper.getReadableDatabase();
-                    long recdelete = sqLiteDatabase.delete(TABLE_BASKET, "basketId = " + modelbasket.getId(), null);
-                    if (recdelete != 1){
-                        modelbaskets.remove(position);
-                        notifyDataSetChanged();
+                }try {
+                    cursor.close();
+                    if (pr <= bl){
+                        DBHelper dbHelper = new DBHelper(context);
+                        sqLiteDatabase = dbHelper.getReadableDatabase();
+                        long recdelete = sqLiteDatabase.delete(TABLE_BASKET, "basketId = " + modelbasket.getId(), null);
+                        if (recdelete != 1){
+                            modelbaskets.remove(position);
+                            notifyDataSetChanged();
+                        }
+                        String buyBasket = "insert into " + TABLE_SALE + " (" + SALE_USER + ", " + SALE_PRODUCT + ")" +
+                                " values (" + "'" + loginActivity.user5 + "'" + ", " + "'" + holder.txtname.getText().toString() + "'" + ")";
+                        sqLiteDatabase.execSQL(buyBasket);
+                        String moneyMinus = "update balance set balanceMoney = balanceMoney - " + pr +
+                                " where balanceUser = " + "'" + loginActivity.user5 + "'";
+                        sqLiteDatabase.execSQL(moneyMinus);
+                        Toast.makeText(context, "Товар куплен", Toast.LENGTH_SHORT).show();
                     }
-                    String buyBasket = "insert into " + TABLE_SALE + " (" + SALE_USER + ", " + SALE_PRODUCT + ")" +
-                            " values (" + "'" + loginActivity.user5 + "'" + ", " + "'" + holder.txtname.getText().toString() + "'" + ")";
-                    sqLiteDatabase.execSQL(buyBasket);
-                    String moneyMinus = "update balance set balanceMoney = balanceMoney - " + pr +
-                            " where balanceUser = " + "'" + loginActivity.user5 + "'";
-                    sqLiteDatabase.execSQL(moneyMinus);
-                    Toast.makeText(context, "Товар куплен", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(context, "Пополните баланс!", Toast.LENGTH_SHORT).show();
+                    else {
+                        Toast.makeText(context, "Пополните баланс!", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
             }
         });
@@ -105,7 +108,7 @@ public class MyAdapterBasket extends RecyclerView.Adapter<MyAdapterBasket.PostVi
                 sqLiteDatabase = dbHelper.getReadableDatabase();
                 long recdelete = sqLiteDatabase.delete(TABLE_BASKET, "basketId = " + modelbasket.getId(), null);
                 if (recdelete != 1){
-                    Toast.makeText(context, "date deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Удалено", Toast.LENGTH_SHORT).show();
                     modelbaskets.remove(position);
                     notifyDataSetChanged();
                 }

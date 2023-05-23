@@ -142,7 +142,7 @@ public class AddProduct extends AppCompatActivity {
                 sqLiteDatabase = dbHelper.getWritableDatabase();
                 Long recinsrt = sqLiteDatabase.insert(TABLE_MUSIC, null, cv);
                 if (recinsrt != null){
-                    Toast.makeText(AddProduct.this, "inserted successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddProduct.this, "Данные добавлены", Toast.LENGTH_SHORT).show();
                     avatar.setImageResource(R.mipmap.ic_launcher);
                     name.setText("");
                     type.setText("");
@@ -171,7 +171,7 @@ public class AddProduct extends AppCompatActivity {
                 sqLiteDatabase = dbHelper.getWritableDatabase();
                 long recedit = sqLiteDatabase.update(TABLE_MUSIC, cv, "id = " + id, null);
                 if (recedit != -1){
-                    Toast.makeText(AddProduct.this, "Update successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddProduct.this, "Данные изменены", Toast.LENGTH_SHORT).show();
                     avatar.setImageResource(R.mipmap.ic_launcher);
                     name.setText("");
                     type.setText("");
@@ -217,7 +217,7 @@ public class AddProduct extends AppCompatActivity {
                     if (camera_accept && storage_accept) {
                         pickFromGallery();
                     }else {
-                        Toast.makeText(this, "enable camera and storage permission", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Включите разрешение на использование камеры", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -228,7 +228,7 @@ public class AddProduct extends AppCompatActivity {
                     if (storage_accept) {
                         pickFromGallery();
                     }else {
-                        Toast.makeText(this, "please enable storage permission", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Включите разрешение на хранение данных", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

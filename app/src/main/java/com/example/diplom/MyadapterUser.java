@@ -64,7 +64,7 @@ public class MyadapterUser extends RecyclerView.Adapter<MyadapterUser.ViewHolder
                 String add = "insert into " + TABLE_BASKET + " (" + BASKET_USER + ", " + BASKET_MUSIC + ", " + BASKET_PRICE + ")" +
                         " values (" + "'" + loginActivity.user5 + "'" + ", " + "'" + holder.txtname1.getText().toString() + "'" + ", " + holder.txtprice1.getText().toString() + ")";
                 sqLiteDatabase.execSQL(add);
-                Toast.makeText(context, "Product add", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Добавлено в корзину", Toast.LENGTH_SHORT).show();
             }
         });
     }

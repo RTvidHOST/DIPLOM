@@ -53,7 +53,7 @@ public class MyAdapterAdmin extends RecyclerView.Adapter<MyAdapterAdmin.PostView
                 sqLiteDatabase = dbHelper.getReadableDatabase();
                 long recdelete = sqLiteDatabase.delete(TABLE_USERS, "loginUser = " + "'" + model1.getLogin() + "'", null);
                 if (recdelete !=1){
-                    Toast.makeText(context, "date deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Данные удалены", Toast.LENGTH_SHORT).show();
                     modelArrayList.remove(position);
                     notifyDataSetChanged();
                 }

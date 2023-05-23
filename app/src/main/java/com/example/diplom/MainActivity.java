@@ -40,27 +40,25 @@ public class MainActivity extends AppCompatActivity {
                 String repass = repassword.getText().toString();
 
                 if (user.equals("")||pass.equals("")||repass.equals(""))
-                    Toast.makeText(MainActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
                 else {
                     if (pass.equals(repass)){
                         Boolean checkuser = dbHelper.checkusername(user);
                         if (checkuser == false){
                             Boolean insert = dbHelper.insertUser(user, pass);
                             if (insert == true){
-                                Toast.makeText(MainActivity.this, "Register successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Регистрация завершена", Toast.LENGTH_SHORT).show();
                                 dbHelper.addBalance(user, "0");
-                                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-                                startActivity(intent);
                             } else {
-                                Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Ошибка регистрации", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else {
-                            Toast.makeText(MainActivity.this, "User already exists! Please sign in", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Пользователь уже существует", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else {
-                        Toast.makeText(MainActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Пароли не совпадают", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
